@@ -2,6 +2,7 @@ package team.kyb.iknow;
 
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -32,6 +33,7 @@ import android.widget.Toast;
 import android.widget.SimpleCursorAdapter;
 import android.widget.CursorAdapter;
 import android.database.Cursor;
+import android.graphics.Color;
 
 public class IKnowGame extends Activity implements TextToSpeech.OnInitListener {
 
@@ -61,6 +63,8 @@ public class IKnowGame extends Activity implements TextToSpeech.OnInitListener {
 	private int numGoalSetting = 4; //make this adjustable later in settings. chh 12/2/2013
 	private int numWrongSetting = 3;
 	private boolean mSoundOn = true;
+	
+
 
 		
 	
@@ -70,6 +74,44 @@ public class IKnowGame extends Activity implements TextToSpeech.OnInitListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.iknow_layout);
+		
+		
+		Calendar c = Calendar.getInstance();
+		//c.setTime(yourDate);
+		int monthofYear = c.get(Calendar.MONTH) + 1;
+	//	int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);		
+		Log.i("current Month = ", String.valueOf(monthofYear));
+		String monthofYear_string = String.valueOf(monthofYear);
+		
+		if ((monthofYear == 12) || (monthofYear == 1) || (monthofYear == 2)){
+			getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+		} else if ((monthofYear == 3) || (monthofYear == 4) || (monthofYear == 5)){
+			getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+		} else if ((monthofYear == 6) || (monthofYear == 7) || (monthofYear == 8)){
+			getWindow().getDecorView().setBackgroundColor(Color.YELLOW);	
+		} else if ((monthofYear == 9) || (monthofYear == 10) || (monthofYear == 11)){
+			getWindow().getDecorView().setBackgroundColor(Color.rgb(240,187,143)); //light orange
+		} else {
+			getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+		}		
+		
+//        switch (monthofYear_string) {
+//        case '12': case '1': case '2':
+//         	getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+//            break;
+//        case 3: case 4: case 5:
+//        	getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+//            break;
+//        case 6: case 7: case 8:
+//        	getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
+//            break;
+//        case 9: case 10: case 11:
+//        	getWindow().getDecorView().setBackgroundColor(Color.RED);
+//        default:
+//        	getWindow().getDecorView().setBackgroundColor(Color.WHITE);
+//            break;
+//        };
+		
 		
 		tts = new TextToSpeech(this, this);
 		
