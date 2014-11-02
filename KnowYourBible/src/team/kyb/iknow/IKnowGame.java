@@ -84,11 +84,11 @@ public class IKnowGame extends Activity implements TextToSpeech.OnInitListener {
 		String monthofYear_string = String.valueOf(monthofYear);
 		
 		if ((monthofYear == 12) || (monthofYear == 1) || (monthofYear == 2)){
-			getWindow().getDecorView().setBackgroundColor(Color.BLUE);
+			getWindow().getDecorView().setBackgroundColor(Color.rgb(135,206,250));  //light blue
 		} else if ((monthofYear == 3) || (monthofYear == 4) || (monthofYear == 5)){
-			getWindow().getDecorView().setBackgroundColor(Color.GREEN);
+			getWindow().getDecorView().setBackgroundColor(Color.rgb(255,182,193));  //light pink
 		} else if ((monthofYear == 6) || (monthofYear == 7) || (monthofYear == 8)){
-			getWindow().getDecorView().setBackgroundColor(Color.YELLOW);	
+			getWindow().getDecorView().setBackgroundColor(Color.rgb(250,250,210));  //light yellow	
 		} else if ((monthofYear == 9) || (monthofYear == 10) || (monthofYear == 11)){
 			getWindow().getDecorView().setBackgroundColor(Color.rgb(240,187,143)); //light orange
 		} else {

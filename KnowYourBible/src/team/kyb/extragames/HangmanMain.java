@@ -7,6 +7,7 @@ import team.kyb.animationAPI.LoseEffect;
 import team.kyb.animationAPI.WinEffect;
 import team.kyb.database.DatabaseConnector;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +49,9 @@ public class HangmanMain extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hangman_layout);
+		
+		//getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+		
 		
 		mNewGame = (Button) findViewById(R.id.newGameButton);
 		mNewGame.setOnClickListener(mClickNewGame);
@@ -154,6 +160,9 @@ public class HangmanMain extends Activity {
 		public void onClick(View view) {
 			if (mKeyboard[location].isEnabled() && !mGame.gameOver()) {
 				mKeyboard[location].setEnabled(false);
+				
+				
+				
 				int wrong = mGame.makeGuess(pressedLetter);
 				if (wrong == 0) {
 					animationHelper.applyRotation(mHangman[trackImage],
