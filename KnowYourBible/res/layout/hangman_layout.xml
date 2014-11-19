@@ -17,18 +17,29 @@
         android:layout_width="match_parent"
         android:layout_height="90dp"
         android:layout_centerHorizontal="true"
-        android:paddingTop="8dp"
+        android:paddingTop="5dp"
         android:textIsSelectable="true"
         />
+    
+    <ImageButton
+        android:id="@+id/keyboard_btn"
+        android:layout_width="@dimen/keyboard_size"
+        android:layout_height="@dimen/keyboard_size"
+        android:src="@drawable/keyboard3"
+        android:layout_below="@+id/scripture_hangman"
+        android:paddingTop="6dp"
+        android:contentDescription="@string/keyboard_description"
+        />
+        
     
      <TextView
         android:id="@+id/word_hang_man"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/keyboard_hangman"
-        android:layout_below="@+id/scripture_hangman"
-        android:layout_marginTop="20dp"
-        android:paddingTop="10dp"
+        android:layout_below="@+id/keyboard_btn"
+        android:layout_marginTop="10dp"
+        android:paddingTop="6dp"
         android:textSize="30sp" />   
     
     <TableLayout
