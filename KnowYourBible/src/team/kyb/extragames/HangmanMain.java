@@ -19,8 +19,11 @@ import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HangmanMain extends Activity {
 	DatabaseConnector database = new DatabaseConnector(this);
@@ -28,6 +31,9 @@ public class HangmanMain extends Activity {
 	private AnimationHelper animationHelper = new AnimationHelper();
 
 	private Button mKeyboard[] = new Button[26];
+	
+	ImageButton keyboardButton;
+	
 	
 	private Button mNewGame;
 
@@ -50,7 +56,7 @@ public class HangmanMain extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.hangman_layout);
 		
-		//getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+		
 		
 		
 		mNewGame = (Button) findViewById(R.id.newGameButton);
@@ -75,6 +81,12 @@ public class HangmanMain extends Activity {
 
 		declaringKeyboard();
 		
+		addListenerOnButton();
+		
+		EditText lettersShow = (EditText) findViewById(R.id.letters_view);
+		
+		lettersShow.requestFocus();
+		
 		database.open();
 		ScriptureForGameHelper scripture = new ScriptureForGameHelper(database.getRandomScriptureForGame());
 		database.close();
@@ -86,7 +98,29 @@ public class HangmanMain extends Activity {
 
 	}
 
-
+	public void addListenerOnButton(){
+		
+		keyboardButton = (ImageButton) findViewById(R.id.keyboard_btn);
+		
+		keyboardButton.setOnClickListener(new OnClickListener(){
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				EditText lettersShow = (EditText) findViewById(R.id.letters_view);
+				
+			
+				
+				lettersShow.requestFocus();
+				/*InputMethodManager keyboard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+				
+				keyboard.showSoftInput(lettersShow, InputMethodManager.SHOW_IMPLICIT);
+				//getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+*/				
+				Toast.makeText(HangmanMain.this, "Keyboard button clicked!", Toast.LENGTH_SHORT).show();
+			}
+		});
+	}
 	
 	private void setNextFiveHangManView() {
 		for (int i = 1; i < mHangman.length; i++) {

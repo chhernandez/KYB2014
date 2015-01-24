@@ -40,7 +40,16 @@
         android:layout_below="@+id/keyboard_btn"
         android:layout_marginTop="10dp"
         android:paddingTop="6dp"
-        android:textSize="30sp" />   
+        android:textSize="30sp" />  
+        
+    <EditText android:id="@+id/letters_view"
+        android:layout_below="@id/word_hang_man"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textNoSuggestions"
+        android:hint="@string/letters_view_hint" />
+	
+
     
     <TableLayout
         android:id="@+id/keyboard_hangman"

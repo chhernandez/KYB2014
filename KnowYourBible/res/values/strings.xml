@@ -89,7 +89,7 @@
 	<string name="newline">\n</string>
 	<string name="newgame">New Game</string>
 	<string name="keyboard_description">Display keyboard</string>
-	
+	<string name="letters_view_hint">Click here to begin selection</string>
 	
 	<string name="aboutgame">Know Your Bible (KYB) is a fun and educational game to help anyone learn and memorize Bible scriptures.\n
 	    \n
