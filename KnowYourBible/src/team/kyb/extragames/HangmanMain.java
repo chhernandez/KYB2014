@@ -85,6 +85,7 @@ public class HangmanMain extends Activity {
 		
 		EditText lettersShow = (EditText) findViewById(R.id.letters_view);
 		
+		
 		lettersShow.requestFocus();
 		
 		database.open();
@@ -109,10 +110,13 @@ public class HangmanMain extends Activity {
 				// TODO Auto-generated method stub
 				EditText lettersShow = (EditText) findViewById(R.id.letters_view);
 				
-			
+
 				
 				lettersShow.requestFocus();
 				/*InputMethodManager keyboard = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+				
+				
+				
 				
 				keyboard.showSoftInput(lettersShow, InputMethodManager.SHOW_IMPLICIT);
 				//getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
